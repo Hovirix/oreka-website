@@ -4,9 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("xyzlylak");
+
+  const { t } = useLanguage();
 
   if (state.succeeded) {
     return (
@@ -27,72 +30,67 @@ const ContactForm = () => {
               />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold mb-2">Thank you for reaching out!</h3>
-          <p className="text-muted-foreground">
-            We'll get back to you as soon as possible.
-          </p>
+          <h3 className="text-2xl font-bold mb-2">{t("contact.successTitle")}</h3>
+          <p className="text-muted-foreground">{t("contact.successText")}</p>
         </CardContent>
       </Card>
     );
   }
-
   return (
     <Card className="max-w-2xl mx-auto border-border/50">
       <CardHeader>
-        <CardTitle className="text-2xl">Get in Touch</CardTitle>
-        <CardDescription>
-          Send us a message and we'll respond within 24 hours
-        </CardDescription>
+        <CardTitle className="text-2xl">{t("contact.formTitle")}</CardTitle>
+        <CardDescription>{t("contact.formDescription")}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name">{t("contact.labels.name")}</Label>
             <Input
               id="name"
               name="name"
-              placeholder="Your name"
+              placeholder={t("contact.placeholders.name")}
               required
               className="transition-all duration-300 focus:border-primary"
             />
-            <ValidationError prefix="Name" field="name" errors={state.errors} />
+            <ValidationError prefix={t("contact.labels.name")} field="name" errors={state.errors} />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">{t("contact.labels.email")}</Label>
             <Input
               id="email"
               type="email"
               name="email"
-              placeholder="your.email@company.com"
+              placeholder={t("contact.placeholders.email")}
               required
               className="transition-all duration-300 focus:border-primary"
             />
-            <ValidationError prefix="Email" field="email" errors={state.errors} />
+            <ValidationError prefix={t("contact.labels.email")} field="email" errors={state.errors} />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="company">Company</Label>
+            <Label htmlFor="company">{t("contact.labels.company")}</Label>
             <Input
               id="company"
               name="company"
-              placeholder="Your company name"
+              placeholder={t("contact.placeholders.company")}
               className="transition-all duration-300 focus:border-primary"
             />
-            <ValidationError prefix="Company" field="company" errors={state.errors} />
+            <ValidationError prefix={t("contact.labels.company")} field="company" errors={state.errors} />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message">{t("contact.labels.message")}</Label>
             <Textarea
               id="message"
               name="message"
-              placeholder="Tell us about your needs..."
+              placeholder={t("contact.placeholders.message")}
               rows={5}
               required
               className="transition-all duration-300 focus:border-primary resize-none"
             />
-            <ValidationError prefix="Message" field="message" errors={state.errors} />
+            <ValidationError prefix={t("contact.labels.message")} field="message" errors={state.errors} />
           </div>
 
           <Button
@@ -100,7 +98,7 @@ const ContactForm = () => {
             disabled={state.submitting}
             className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
           >
-            {state.submitting ? "Sending..." : "Send Message"}
+            {state.submitting ? t("contact.sending") : t("contact.send")}
           </Button>
         </form>
       </CardContent>
