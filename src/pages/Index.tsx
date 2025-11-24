@@ -11,8 +11,13 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="fixed top-4 right-4 z-50">
-        <LanguageSwitcher />
+      <div className="w-full">
+        <div className="hidden sm:flex justify-end px-6 pt-4">
+          <LanguageSwitcher />
+        </div>
+        <div className="sm:hidden px-4 pt-4">
+          <LanguageSwitcher />
+        </div>
       </div>
       <Hero />
       <Features />

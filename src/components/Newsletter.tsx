@@ -7,6 +7,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 
 const Newsletter = () => {
   const [state, handleSubmit] = useForm("xyzlylak");
+  const { t } = useLanguage();
 
   if (state.succeeded) {
     return (
@@ -21,7 +22,6 @@ const Newsletter = () => {
       </Card>
     );
   }
-  const { t } = useLanguage();
 
   return (
     <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">

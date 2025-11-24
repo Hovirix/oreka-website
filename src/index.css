@@ -112,3 +112,20 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .language-select option {
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+  }
+
+  .language-select {
+    color: hsl(var(--primary)) !important;
+    -webkit-text-fill-color: hsl(var(--primary)) !important;
+    background-image: none !important;
+  }
+
+  .language-select::-ms-expand {
+    display: none;
+  }
+}
