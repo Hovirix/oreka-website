@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Newsletter = () => {
   const [state, handleSubmit] = useForm("xyzlylak");
@@ -14,14 +15,13 @@ const Newsletter = () => {
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
             <Mail className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h3 className="text-2xl font-bold mb-2">You're all set!</h3>
-          <p className="text-muted-foreground">
-            Thanks for subscribing. We'll keep you updated on our launch.
-          </p>
+          <h3 className="text-2xl font-bold mb-2">{t("newsletter.successTitle")}</h3>
+          <p className="text-muted-foreground">{t("newsletter.successText")}</p>
         </CardContent>
       </Card>
     );
   }
+  const { t } = useLanguage();
 
   return (
     <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
@@ -30,10 +30,8 @@ const Newsletter = () => {
           <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
             <Mail className="w-6 h-6 text-primary-foreground" />
           </div>
-          <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-          <p className="text-muted-foreground">
-            Be the first to know when we launch. No spam, just valuable updates.
-          </p>
+          <h3 className="text-2xl font-bold mb-2">{t("newsletter.title")}</h3>
+          <p className="text-muted-foreground">{t("newsletter.subtitle")}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -42,7 +40,7 @@ const Newsletter = () => {
               id="newsletter-email"
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder={t("newsletter.placeholder")}
               required
               className="flex-1 transition-all duration-300 focus:border-primary"
             />
@@ -51,7 +49,7 @@ const Newsletter = () => {
               disabled={state.submitting}
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity sm:w-auto"
             >
-              {state.submitting ? "Subscribing..." : "Subscribe"}
+              {state.submitting ? t("newsletter.subscribing") : t("newsletter.subscribe")}
             </Button>
           </div>
           <ValidationError prefix="Email" field="email" errors={state.errors} />

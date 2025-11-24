@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Hero = () => {
   const scrollToBottom = () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
+  const { t } = useLanguage();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
@@ -11,13 +13,13 @@ const Hero = () => {
       
       <div className="relative max-w-5xl mx-auto text-center animate-fade-in-up">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          Oreka Finance Cloud
+          {t("hero.title")}
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-          Next-generation cloud financial infrastructure for modern businesses
+          {t("hero.subtitle")}
         </p>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Streamline your financial operations with secure, scalable, and intelligent cloud solutions designed for the future of B2B finance.
+          {t("hero.support")}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -26,7 +28,7 @@ const Hero = () => {
             className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
             onClick={scrollToBottom}
           >
-            Get Early Access
+            {t("hero.ctaPrimary")}
           </Button>
           <Button 
             size="lg" 
@@ -34,7 +36,7 @@ const Hero = () => {
             className="border-primary text-primary hover:bg-primary/5"
             onClick={scrollToBottom}
           >
-            Learn More
+            {t("hero.ctaSecondary")}
           </Button>
         </div>
       </div>
