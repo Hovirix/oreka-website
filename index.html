@@ -1,24 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oreka Finance Cloud - Next-Generation Cloud Financial Infrastructure</title>
-    <meta name="description" content="Transform your financial operations with Oreka Finance Cloud. Secure, scalable, and intelligent cloud solutions designed for modern B2B finance." />
-    <meta name="author" content="Oreka Finance Cloud" />
-
-    <meta property="og:title" content="Oreka Finance Cloud - Next-Generation Cloud Financial Infrastructure" />
-    <meta property="og:description" content="Transform your financial operations with Oreka Finance Cloud. Secure, scalable, and intelligent cloud solutions designed for modern B2B finance." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
-
+    <title>Oreka Finance - Cloud Financial Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              oreka: {
+                bg: '#FFFFFF',
+                card: '#FFFFFF',
+                accent: '#0EA5E9',
+                text: '#0F172A',
+                muted: '#64748B'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #FFFFFF;
+        color: #0F172A;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@formspree/react": "https://aistudiocdn.com/@formspree/react@^3.0.0"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script type="module" src="/src/index.tsx"></script>
+</body>
 </html>
